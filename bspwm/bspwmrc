@@ -30,7 +30,7 @@ for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
     #bspc monitor "$monitor" -d '' '' '' '' '' ''
 done
 if xrandr -q | grep 'HDMI-0 connected' >/dev/null 2>&1; then
-    xrandr --outout HDMI-0 --mode 3840x2160 --rate 144.0
+    xrandr --output HDMI-0 --mode 3840x2160 --rate 144.0
 fi
 
 ## For two or three monitors configuration see https://github.com/gh0stzk/dotfiles/wiki/Two-or-more-monitors-setup
