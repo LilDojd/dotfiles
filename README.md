@@ -40,10 +40,11 @@ My opinionated dotfiles, featuring a `bspwm` setup based on z0mbi3's config. Inc
     ```bash
     stow .
     ```
-    
+You might also want to install a lot of fonts and icons as specified in the [gh0stzk repo](https://github.com/gh0stzk/dotfiles)
+
 ## Acknowledgments
 
-- z0mbi3 (bspwm)
+- gh0stzk (a lot of stuff)
 - AstroNvim
 - Hyprland (starship.toml)
 - dharmx for beautiful ASCII

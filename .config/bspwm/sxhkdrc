@@ -21,6 +21,9 @@ super + alt + Return
 super + @space
 	OpenApps --menu
 
+super + g
+	OpenApps --usercard
+
 #####
 
 # Apps (browser, editor, filemanager)
