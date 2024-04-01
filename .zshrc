@@ -132,6 +132,11 @@ alias musica="ncmpcpp"
 
 alias ls='lsd -a --group-directories-first'
 alias ll='lsd -la --group-directories-first'
+
+bak () {
+  mv "$1" "$1.bak"
+}
+
 # Show top 21 Commands used (thanks totoro
 toppy() {
     history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n 21

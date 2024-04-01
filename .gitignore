@@ -6,3 +6,4 @@
 .nomedia
 *.log.*
 *.log
+*.bak
