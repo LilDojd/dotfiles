@@ -14,7 +14,7 @@
 </p>
 
 
-![Maintenance](https://img.shields.io/maintenance/yes/2024) ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg) ![License](https://img.shields.io/github/license/yourusername/dotfiles)
+![Maintenance](https://img.shields.io/maintenance/yes/2024) ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg) ![License](https://img.shields.io/github/license/LilDojd/dotfiles)
 
 
 My opinionated dotfiles, featuring a `bspwm` setup based on z0mbi3's config. Includes:
