@@ -5,3 +5,4 @@
 .config/mopidy/mopidy.conf
 .nomedia
 *.log.*
+*.log
