@@ -16,8 +16,13 @@
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2024) ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg) ![License](https://img.shields.io/github/license/LilDojd/dotfiles)
 
-
 My opinionated dotfiles, featuring a `bspwm` setup based on z0mbi3's config. Includes:
+
+## Preview
+
+<img width="1920" alt="image_2024-04-01_23-50-10" src="https://github.com/LilDojd/dotfiles/assets/37330594/24ac3e83-4f7c-4146-b81c-d501a93eb9e6">
+
+![image](https://github.com/LilDojd/dotfiles/assets/37330594/ea6c4407-1d3b-47c6-9e6c-52dbcabd6f9e)
 
 ## Features
 
@@ -53,4 +58,4 @@ You might also want to install a lot of fonts and icons as specified in the [gh0
 
 ## Important Notice !!!
 
-This configuration looks nice in 3840x2160 at 144 DPI, other configurations might need tweaking
+This configuration looks nice in 3840x2160 at 144 DPI with a single monitor, other configurations might need tweaking
