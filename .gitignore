@@ -1,0 +1,7 @@
+#--------------------------------------------------#
+# The following was generated with gitignore.nvim: #
+#--------------------------------------------------#
+
+.config/mopidy/mopidy.conf
+.nomedia
+*.log.*

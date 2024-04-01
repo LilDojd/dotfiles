@@ -39,6 +39,9 @@ case "$1" in
     --nvim)
         kitty -e nvim
         ;;
+    --btop)
+        kitty --hold --class FloaTerm -o remember_window_size=no -o initial_window_width=180c -o initial_window_height=40c -e btop
+        ;;
     --music)
         kitty --class FloaTerm -o remember_window_size=no -o initial_window_width=180c -o initial_window_height=40c -e ncmpcpp
         ;;

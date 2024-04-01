@@ -42,9 +42,15 @@ My opinionated dotfiles, featuring a `bspwm` setup based on z0mbi3's config. Inc
     ```
 You might also want to install a lot of fonts and icons as specified in the [gh0stzk repo](https://github.com/gh0stzk/dotfiles)
 
+3. (Optional) For Spotify to work with ncmpcpp, install Mopidy and mopidy-spotify
+
 ## Acknowledgments
 
 - gh0stzk (a lot of stuff)
 - AstroNvim
 - Hyprland (starship.toml)
 - dharmx for beautiful ASCII
+
+## Important Notice !!!
+
+This configuration looks nice in 3840x2160 at 144 DPI, other configurations might need tweaking
