@@ -6,7 +6,7 @@ return {
   opts = {
     suggestion = {
       enabled = true,
-      auto_trigger = true,
+      auto_trigger = false,
       debounce = 150,
       keymap = {
         accept = "<C-a>",
