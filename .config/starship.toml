@@ -24,7 +24,8 @@ java.disabled = true
 golang.disabled = true
 
 [conda]
-format = ' [$symbol$environment](dimmed green) '
+format = '[$symbol$environment](green) '
+ignore_base = false
 
 # Prompt symbols 
 [character]
@@ -32,8 +33,9 @@ success_symbol = "[](green bold)"
 error_symbol = "[](pink)"
 
 [rust]
-format = "[]($style)[[\ue7a8 ](fg:lavender)$version](fg:lavender)[ ]($style)"
+format = "[]($style)[[  ](fg:lavender)$version](fg:lavender)[ ]($style)"
 style = "bg:none fg:base"
+# nice
 
 [directory]
 format = "[]($style)[ ](bg:base fg:pink)[$path](bg:base fg:lavender bold)[ ]($style)"

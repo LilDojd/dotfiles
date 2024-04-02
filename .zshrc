@@ -121,6 +121,7 @@ alias update="paru -Syu --nocombinedupgrade"
 alias vm-on="sudo systemctl start libvirtd.service"
 alias vm-off="sudo systemctl stop libvirtd.service"
 
+alias lg="lazygit"
 alias musica="ncmpcpp"
 
 alias ls='lsd -a --group-directories-first'
