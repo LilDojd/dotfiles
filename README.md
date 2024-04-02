@@ -47,9 +47,10 @@ My **opinionated** dotfiles, featuring a `bspwm` setup based on z0mbi3's config 
 
 2.  Stow everythin to create symlinks pointing to cloned git folder:
 
-        ```bash
-        stow .
-        ```
+    ```bash
+    stow .
+
+    ```
 
     You might also want to install a lot of fonts and icons as specified in the [gh0stzk repo](https://github.com/gh0stzk/dotfiles)
 
