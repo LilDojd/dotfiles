@@ -13,7 +13,6 @@
   <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
 </p>
 
-
 ![Maintenance](https://img.shields.io/maintenance/yes/2024) ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg) ![License](https://img.shields.io/github/license/LilDojd/dotfiles)
 
 My **opinionated** dotfiles, featuring a `bspwm` setup based on z0mbi3's config :shipit:
@@ -32,26 +31,29 @@ My **opinionated** dotfiles, featuring a `bspwm` setup based on z0mbi3's config 
 
 - **Window Manager**: `bspwm`
 - **Terminal Emulators**: Configurations for both `kitty` and `alacritty` are included. Choose what suits you best.
-- **Editor**: Custom `AstroNvim` conifg
+- **Editor**: Custom `AstroNvimV4` conifg
 - **Theme**: A soothing pastel theme that extends across terminal and editor for a uniform look.
 - **Music**: `MPD`-empowered polybar configured for music management via `Mopidy`, ncmpcpp as a player
 - **Prompt**: `starship.toml` taken from hyprland-dots for a sleek terminal prompt.
 
-## Installation
+## Installation (WIP)
 
-
-1. Clone the repository and cd to it:
-   ```bash
-   git clone https://github.com/yourusername/dotfiles.git; cd dotfiles
-   
-2. Stow everythin to create symlinks pointing to cloned git folder:
+1.  Clone the repository and cd to it:
 
     ```bash
-    stow .
-    ```
-You might also want to install a lot of fonts and icons as specified in the [gh0stzk repo](https://github.com/gh0stzk/dotfiles)
+    git clone https://github.com/yourusername/dotfiles.git; cd dotfiles
 
-3. (Optional) For Spotify to work with ncmpcpp, install Mopidy and mopidy-spotify
+    ```
+
+2.  Stow everythin to create symlinks pointing to cloned git folder:
+
+        ```bash
+        stow .
+        ```
+
+    You might also want to install a lot of fonts and icons as specified in the [gh0stzk repo](https://github.com/gh0stzk/dotfiles)
+
+3.  (Optional) For Spotify to work with ncmpcpp, install Mopidy and mopidy-spotify
 
 ## Acknowledgments
 
@@ -62,4 +64,5 @@ You might also want to install a lot of fonts and icons as specified in the [gh0
 
 ## Important Notice !!!
 
-This configuration looks nice in 3840x2160 at 144 DPI with a single monitor, other configurations might need tweaking
+- This configuration looks nice in 3840x2160 at 144 DPI with a single monitor, other configurations might need tweaking
+- `cpuusage` binary in bspwm scripts is pre-built for x86_64, you might want to rebuild id based on your system configuration from .scripts
