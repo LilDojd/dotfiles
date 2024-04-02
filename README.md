@@ -32,9 +32,9 @@ My **opinionated** dotfiles, featuring a `bspwm` setup based on z0mbi3's config 
 
 - **Window Manager**: `bspwm`
 - **Terminal Emulators**: Configurations for both `kitty` and `alacritty` are included. Choose what suits you best.
-- **Editor**: Custom `AstroNvim`
+- **Editor**: Custom `AstroNvim` conifg
 - **Theme**: A soothing pastel theme that extends across terminal and editor for a uniform look.
-- **Music**: `MPD` configured for music management and some spotify scripts for polybar.
+- **Music**: `MPD`-empowered polybar configured for music management via `Mopidy`, ncmpcpp as a player
 - **Prompt**: `starship.toml` taken from hyprland-dots for a sleek terminal prompt.
 
 ## Installation
