@@ -238,3 +238,5 @@ if [ -f "/home/yawner/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+export PATH=$PATH:/home/yawner/.pixi/bin
+eval "$(pixi completion --shell zsh)"
