@@ -219,6 +219,10 @@ eval "$(zoxide init zsh)"
 #  ┴ ┴└─┘ ┴ └─┘  └─┘ ┴ ┴ ┴┴└─ ┴ 
 $HOME/.local/bin/colorscript -r
 
+alias pymol=/home/yawner/soft/pymol/pymol
+export PATH=$PATH:/home/yawner/.pixi/bin
+eval "$(pixi completion --shell zsh)"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/yawner/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -238,5 +242,13 @@ if [ -f "/home/yawner/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
-export PATH=$PATH:/home/yawner/.pixi/bin
-eval "$(pixi completion --shell zsh)"
+# bun completions
+[ -s "/home/yawner/.bun/_bun" ] && source "/home/yawner/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
