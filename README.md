@@ -41,7 +41,7 @@ My **opinionated** dotfiles, featuring a `bspwm` setup based on z0mbi3's config 
 1.  Clone the repository and cd to it:
 
     ```bash
-    git clone https://github.com/yourusername/dotfiles.git; cd dotfiles
+    git clone https://github.com/LilDojd/dotfiles.git; cd dotfiles
 
     ```
 
