@@ -5,6 +5,7 @@
 #  ┬  ┬┌─┐┬─┐┌─┐
 #  └┐┌┘├─┤├┬┘└─┐
 #   └┘ ┴ ┴┴└─└─┘
+export TERMINFO='/usr/share/terminfo/'
 export VISUAL="${EDITOR}"
 export EDITOR='nvim'
 export TERM='kitty'
@@ -21,7 +22,7 @@ if [ -d "$HOME/.cargo/bin" ] ;
 fi
 
 #  ┬  ┌─┐┌─┐┌┬┐  ┌─┐┌┐┌┌─┐┬┌┐┌┌─┐
-#  │  │ │├─┤ ││  ├┤ ││││ ┬││││├┤ 
+#  │  │ │├─┤ ││  ├┤ ││││ ┬││││├┤
 #  ┴─┘└─┘┴ ┴─┴┘  └─┘┘└┘└─┘┴┘└┘└─┘
 autoload -Uz compinit
 
@@ -57,7 +58,7 @@ bindkey "^I" expand-or-complete-with-dots
 
 #  ┬ ┬┬┌─┐┌┬┐┌─┐┬─┐┬ ┬
 #  ├─┤│└─┐ │ │ │├┬┘└┬┘
-#  ┴ ┴┴└─┘ ┴ └─┘┴└─ ┴ 
+#  ┴ ┴┴└─┘ ┴ └─┘┴└─ ┴
 export HISTFILE=~/.zsh_history
 HISTSIZE=5000000
 SAVEHIST=5000000
@@ -76,22 +77,22 @@ setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
 setopt INC_APPEND_HISTORY
 
 #  ┌┬┐┬ ┬┌─┐  ┌─┐┬─┐┌─┐┌┬┐┌─┐┌┬┐
-#   │ ├─┤├┤   ├─┘├┬┘│ ││││├─┘ │ 
+#   │ ├─┤├┤   ├─┘├┬┘│ ││││├─┘ │
 #   ┴ ┴ ┴└─┘  ┴  ┴└─└─┘┴ ┴┴   ┴
 eval "$(starship init zsh)"
 
 #  ┌─┐┬  ┬ ┬┌─┐┬┌┐┌┌─┐
 #  ├─┘│  │ ││ ┬││││└─┐
 #  ┴  ┴─┘└─┘└─┘┴┘└┘└─┘
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 #  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬  ┌─┐  ┌┬┐┬┌┬┐┬  ┌─┐
-#  │  ├─┤├─┤││││ ┬├┤    │ ├┤ ├┬┘│││││││├─┤│  └─┐   │ │ │ │  ├┤ 
+#  │  ├─┤├─┤││││ ┬├┤    │ ├┤ ├┬┘│││││││├─┤│  └─┐   │ │ │ │  ├┤
 #  └─┘┴ ┴┴ ┴┘└┘└─┘└─┘   ┴ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘└─┘   ┴ ┴ ┴ ┴─┘└─┘
 function xterm_title_precmd () {
 	print -Pn -- '\e]2;%n@%m %~\a'
@@ -111,21 +112,11 @@ fi
 #  ┌─┐┬  ┬┌─┐┌─┐
 #  ├─┤│  │├─┤└─┐
 #  ┴ ┴┴─┘┴┴ ┴└─┘
-alias mirrors="sudo reflector --verbose --latest 5 --country 'United States' --age 6 --sort rate --save /etc/pacman.d/mirrorlist"
-
-alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias mantenimiento="yay -Sc && sudo pacman -Scc"
-alias purga="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
-alias update="paru -Syu --nocombinedupgrade"
-
-alias vm-on="sudo systemctl start libvirtd.service"
-alias vm-off="sudo systemctl stop libvirtd.service"
-
 alias lg="lazygit"
 alias musica="ncmpcpp"
 
-alias ls='lsd -a --group-directories-first'
-alias ll='lsd -la --group-directories-first'
+alias ls='gls -a --group-directories-first'
+alias ll='gls -la --group-directories-first'
 
 bak () {
   mv "$1" "$1.bak"
@@ -142,7 +133,7 @@ file_amount() {
 
 # cd and ls after
 cd() {
-	builtin cd "$@" && command ls --group-directories-first --color=auto -F
+	builtin cd "$@" && command gls --group-directories-first --color=auto -F
 }
 
 # recompile completion and reload zsh
@@ -155,15 +146,12 @@ src() {
 }
 
 # fzf source
-source /usr/share/fzf/key-bindings.zsh
+eval "$(fzf --zsh)"
 
 ###############################
 # ****** ALIAS SECTION ****** #
 ###############################
 
-# Update thingy
-alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias mirror-update='sudo reflector --verbose -c Indonesia -c Japan -c Singapore --sort rate --save /etc/pacman.d/mirrorlist'
 # Archives
 alias mtar='tar -zcvf' # mtar <archive_compress>
 alias utar='tar -zxvf' # utar <archive_decompress> <file_list>
@@ -178,21 +166,9 @@ mcd () {
     cd $1
 }
 # alias for searching through ps
-alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" 
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 # alias for mkdir so that it makes required parent directory
 alias mkdir="mkdir -p"
-# alias for ranger
-alias fm='ranger'
-# alias for searching and installing packages
-alias pacs="pacman -Slq | fzf -m --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk \"{print \$2}\")' | xargs -ro sudo pacman -S"
-# alias for searching and installing packages from AUR
-alias yays="yay -Slq | fzf -m --preview 'cat <(yay -Si {1}) <(yay -Fl {1} | awk \"{print \$2}\")' | xargs -ro  yay -S"
-# alias for searching and removing packages from system
-alias pacr="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
-# alias for searching packages from system
-alias p="pacman -Q | fzf"
-# alias for wifi
-alias wifi="nmtui-connect"
 # alias for grep
 alias grep='grep --color=auto'
 # alias for Neovim
@@ -207,48 +183,10 @@ rc(){
   g++ "$1" -o run
   ./run
 }
-# alias for checking dunst
-alias dun='killall dunst && dunst &
-notify-send "cool1" "yeah it is working"
-notify-send "cool2" "yeah it is working"'
 
 eval "$(zoxide init zsh)"
 # ---------------P R O M P T------------------
 #  ┌─┐┬ ┬┌┬┐┌─┐  ┌─┐┌┬┐┌─┐┬─┐┌┬┐
-#  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │ 
-#  ┴ ┴└─┘ ┴ └─┘  └─┘ ┴ ┴ ┴┴└─ ┴ 
+#  ├─┤│ │ │ │ │  └─┐ │ ├─┤├┬┘ │
+#  ┴ ┴└─┘ ┴ └─┘  └─┘ ┴ ┴ ┴┴└─ ┴
 $HOME/.local/bin/colorscript -r
-
-alias pymol=/home/yawner/soft/pymol/pymol
-export PATH=$PATH:/home/yawner/.pixi/bin
-eval "$(pixi completion --shell zsh)"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/yawner/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/yawner/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/yawner/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/yawner/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/home/yawner/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/home/yawner/miniforge3/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-
-# bun completions
-[ -s "/home/yawner/.bun/_bun" ] && source "/home/yawner/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
