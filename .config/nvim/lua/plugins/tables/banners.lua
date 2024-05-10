@@ -173,7 +173,8 @@ return setmetatable(banners, {
   __index = function(logos, key)
     if key == "random" then
       local keys = vim.tbl_keys(logos)
-      return logos[keys[math.random(1, #keys + 1)]]
+      if #keys == 0 then return nil end
+      return logos[keys[math.random(1, #keys)]]
     end
     return logos[key]
   end,
