@@ -1,9 +1,4 @@
 return {
-  "AstroNvim/astrolsp",
-  optional = true,
-  opts = {
-    autocmds = {
-      eslint_fix_on_save = false,
-    },
-  },
+  { import = "astrocommunity.pack.typescript-all-in-one" },
+  { import = "astrocommunity.pack.tailwindcss" },
 }

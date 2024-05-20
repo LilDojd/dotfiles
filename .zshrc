@@ -111,8 +111,8 @@ add-zsh-hook -Uz preexec xterm_title_preexec
 alias lg="lazygit"
 
 alias ssh="kitty +kitten ssh"
-alias ls='gls -a --group-directories-first'
-alias ll='gls -la --group-directories-first'
+alias ls='gls -a --group-directories-first --color=tty'
+alias ll='gls -la --group-directories-first --color=tty'
 
 bak () {
   mv "$1" "$1.bak"
@@ -190,3 +190,27 @@ $HOME/.local/bin/colorscript -r
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/georgiyandreev/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/georgiyandreev/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/georgiyandreev/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/georgiyandreev/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/Users/georgiyandreev/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/Users/georgiyandreev/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+export PATH="$PATH:/Users/georgiyandreev/soft/nvim-macos-arm64/bin"
+eval "$(gh copilot alias -- zsh)"
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
