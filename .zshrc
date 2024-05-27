@@ -8,7 +8,7 @@
 export VISUAL="${EDITOR}"
 export EDITOR='nvim'
 export TERMINAL='kitty'
-export BROWSER='firefox'
+# export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 
 if [ -d "$HOME/.local/bin" ] ;
