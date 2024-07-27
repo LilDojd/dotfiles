@@ -15,5 +15,8 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+-- Globals
+vim.g.have_nerd_font = true
+
 require "lazy_setup"
 require "polish"

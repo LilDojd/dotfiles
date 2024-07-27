@@ -11,42 +11,6 @@ return {
   },
   {
     "AstroNvim/astrolsp",
-    dependencies = {
-      "lvimuser/lsp-inlayhints.nvim",
-      opts = {
-          inlay_hints = {
-              parameter_hints = {
-                  show = true,
-                  prefix = "<- ",
-                  separator = ", ",
-                  remove_colon_start = false,
-                  remove_colon_end = true,
-              },
-              type_hints = {
-                  -- type and other hints
-                  show = true,
-                  prefix = "-> ",
-                  separator = ", ",
-                  remove_colon_start = true,
-                  remove_colon_end = false,
-              },
-              only_current_line = false,
-              -- separator between types and parameter hints. Note that type hints are
-              -- shown before parameter
-              labels_separator = "  ",
-              -- whether to align to the length of the longest line in the file
-              max_len_align = false,
-              -- padding from the left if max_len_align is true
-              max_len_align_padding = 1,
-              -- highlight group
-              highlight = "LspInlayHint",
-              -- virt_text priority
-              priority = 0,
-          },
-          enabled_at_startup = true,
-          debug_mode = false,
-        },
-    },
     optional = true,
     ---@param opts AstroLSPOpts
     opts = {
@@ -56,34 +20,16 @@ return {
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {
-              checkOnSave = {
+              check = {
                 command = "clippy",
-              },
-              assist = {
-                importEnforceGranularity = true,
-                importPrefix = "crate",
-              },
-              completion = {
-                postfix = {
-                  enable = false,
-                },
-              },
-              inlayHints = {
-                lifetimeElisionHints = {
-                  enable = true,
-                  useParameterNames = true,
+                extraArgs = {
+                  "--no-deps",
                 },
               },
             },
           },
         },
       },
-      on_attach = function (client, bufnr)
-        require("lsp-inlayhints").on_attach(client, bufnr)
-        vim.keymap.set("n", "<leader>lI", function ()
-          require("lsp-inlayhints").toggle()
-        end, { desc = "Toggle Inlay Hints", buffer = bufnr })
-      end
     },
   },
   {
@@ -102,8 +48,18 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^4",
+    version = "^5",
     ft = "rust",
+    specs = {
+      {
+        "AstroNvim/astrolsp",
+        optional = true,
+        ---@param opts AstroLSPOpts
+        opts = {
+          handlers = { rust_analyzer = false }, -- disable setup of `rust_analyzer`
+        },
+      },
+    },
     opts = function()
       local adapter
       local success, package = pcall(function() return require("mason-registry").get_package "codelldb" end)
@@ -128,7 +84,23 @@ return {
       end
 
       local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-      return { server = astrolsp_avail and astrolsp.lsp_opts "rust_analyzer", dap = { adapter = adapter } }
+      local astrolsp_opts = (astrolsp_avail and astrolsp.lsp_opts "rust_analyzer") or {}
+      local server = {
+        ---@type table | (fun(project_root:string|nil, default_settings: table|nil):table) -- The rust-analyzer settings or a function that creates them.
+        settings = function(project_root, default_settings)
+          local astrolsp_settings = astrolsp_opts.settings or {}
+
+          local merge_table = require("astrocore").extend_tbl(default_settings or {}, astrolsp_settings)
+          local ra = require "rustaceanvim.config.server"
+          -- load_rust_analyzer_settings merges any found settings with the passed in default settings table and then returns that table
+          return ra.load_rust_analyzer_settings(project_root, {
+            settings_file_pattern = "rust-analyzer.json",
+            default_settings = merge_table,
+          })
+        end,
+      }
+      local final_server = require("astrocore").extend_tbl(astrolsp_opts, server)
+      return { server = final_server, dap = { adapter = adapter }, tools = { enable_clippy = false } }
     end,
     config = function(_, opts) vim.g.rustaceanvim = require("astrocore").extend_tbl(opts, vim.g.rustaceanvim) end,
   },
@@ -154,8 +126,11 @@ return {
       },
     },
     opts = {
-      src = {
+      completion = {
         cmp = { enabled = true },
+        crates = {
+          enabled = true,
+        },
       },
       null_ls = {
         enabled = true,
