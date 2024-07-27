@@ -60,6 +60,7 @@ bindkey "^I" expand-or-complete-with-dots
 export HISTFILE=~/.zsh_history
 HISTSIZE=5000000
 SAVEHIST=5000000
+setopt SHARE_HISTORY
 
 #  ┌─┐┌─┐┬ ┬  ┌─┐┌─┐┌─┐┬    ┌─┐┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
 #  ┌─┘└─┐├─┤  │  │ ││ ││    │ │├─┘ │ ││ ││││└─┐
@@ -210,7 +211,6 @@ if [ -f "/Users/georgiyandreev/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
-export PATH="$PATH:/Users/georgiyandreev/soft/nvim-macos-arm64/bin"
 eval "$(gh copilot alias -- zsh)"
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
