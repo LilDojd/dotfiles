@@ -239,3 +239,10 @@ compdef _neonctl_yargs_completions neonctl
 ###-end-neonctl-completions-###
 
 
+
+# Wasmer
+export WASMER_DIR="/Users/georgiyandreev/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
