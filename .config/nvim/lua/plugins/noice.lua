@@ -39,7 +39,7 @@ return {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    dependencies = { "MunifTanjim/nui.nvim" },
+    dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
     opts = function(_, opts)
       local utils = require "astrocore"
       return utils.extend_tbl(opts, {
@@ -52,7 +52,7 @@ return {
           },
           signature = {
             enabled = false,
-          } 
+          },
         },
         presets = {
           bottom_search = true, -- use a classic bottom cmdline for search
@@ -63,13 +63,17 @@ return {
         },
         views = {
           notify = {
-            merge = true,
+            merge = false,
+            replace = true,
           },
         },
         routes = {
           { filter = { event = "msg_show", find = "DB: Query%s" }, opts = { skip = true } },
           { filter = { event = "msg_show", find = "%swritten" }, opts = { skip = true } },
           { filter = { event = "msg_show", find = "%schange;%s" }, opts = { skip = true } },
+        },
+        format = {
+          notify = { "{message}" },
         },
       })
     end,
