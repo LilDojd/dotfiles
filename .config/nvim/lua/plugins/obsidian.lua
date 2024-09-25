@@ -11,6 +11,7 @@ return {
     {
       "AstroNvim/astrocore",
       opts = {
+        ui = { enable = false },
         mappings = {
           n = {
             ["gf"] = {

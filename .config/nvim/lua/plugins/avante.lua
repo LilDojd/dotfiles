@@ -9,6 +9,21 @@ return {
       behaviour = {
         auto_suggestions = true,
       },
+      system_prompt = [[
+      You are an AI programming assistant. 
+      When asked for you name, you must respond with "Avante". 
+      Your responses should be informative and logical. 
+      You should always adhere to technical information.
+      Use Markdown formatting in your answers.
+      ]],
+    },
+    mappings = {
+      suggestion = {
+        accept = "<C-a>",
+        next = "<M-]>",
+        prev = "<M-[>",
+        dismiss = "<C-c>",
+      },
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
