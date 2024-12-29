@@ -1,0 +1,105 @@
+
+# ============================================================
+# Ghostty Configuration (Somewhat equivalent to a Kitty config)
+# ============================================================
+# Note: Ghostty doesn't support every feature 1:1 with Kitty,
+# but these settings should closely match the Kitty configuration.
+
+mouse-hide-while-typing = true
+
+# ------------------------------------------------------------------
+# FONT SETTINGS
+# ------------------------------------------------------------------
+# Primary font for regular style
+font-family = ""
+font-family = "Monaspace Neon Var"
+
+# Bold style font
+font-family-bold = ""
+font-family-bold = "Monaspace Neon Var"
+
+# Italic style font
+font-family-italic = ""
+font-family-italic = "Monaspace Radon Var"
+
+# Bold italic style font
+font-family-bold-italic = ""
+font-family-bold-italic = "Monaspace Radon Var"
+
+# Enable variable font axes (weight/slant/width)
+# For normal style:
+font-variation = "wght=268.8524"
+font-variation = "wdth=106.3858"
+font-variation = "slnt=0"
+
+# For bold style:
+font-variation-bold = "wght=321.3114754098361"
+font-variation-bold = "wdth=105.7065"
+font-variation-bold = "slnt=0"
+
+# For italic style:
+font-variation-italic = "wght=308.1967"
+font-variation-italic = "wdth=100"
+font-variation-italic = "slnt=-9.625"
+
+# For bold italic style:
+font-variation-bold-italic = "wght=308.1967"
+font-variation-bold-italic = "wdth=100"
+font-variation-bold-italic = "slnt=-9.625"
+
+# Kitty enables a bunch of OpenType features (+calt +ss01 +...).
+# Ghostty applies font-feature settings globally to all styles.
+font-feature = "calt"
+font-feature = "ss01"
+font-feature = "ss02"
+font-feature = "ss03"
+font-feature = "ss04"
+font-feature = "ss05"
+font-feature = "ss06"
+font-feature = "ss07"
+font-feature = "ss08"
+font-feature = "ss09"
+font-feature = "liga"
+
+# Disable style synthesis if you want to rely strictly on the variable font,
+# but in Kitty you were effectively synthesizing some variants. Keep it default.
+# font-synthetic-style = "true"
+
+# Font size (in points)
+font-size = 14
+
+
+# If you want cursor to blink, set cursor-style-blink to true:
+# cursor-style-blink = true
+# If you want a “beam” style cursor, use Ghostty’s “bar” style:
+cursor-style = "bar"
+
+theme = catppuccin-mocha
+
+
+# ------------------------------------------------------------------
+# WINDOW APPEARANCE/PADDING
+# ------------------------------------------------------------------
+# Equivalent to kitty "window_padding_width 0"
+window-padding-x = 0
+window-padding-y = 0
+
+
+# ------------------------------------------------------------------
+# (Optional) If you want no confirmation when closing surfaces:
+# confirm-close-surface = false
+# 
+# (Optional) If you want to change scrollback:
+# Ghostty uses a byte limit. Example ~ 10MB
+scrollback-limit = 10000000
+#
+# (Optional) If you want new windows to keep the font size from the last:
+window-inherit-font-size = true
+#
+# And so on...
+
+# ------------------------------------------------------------
+# Save this file to something like:
+#   ~/.config/ghostty/config
+# or load it explicitly via ghostty --config /path/to/this.conf
+# ------------------------------------------------------------

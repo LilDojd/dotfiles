@@ -7,7 +7,7 @@
 #   └┘ ┴ ┴┴└─└─┘
 export VISUAL="${EDITOR}"
 export EDITOR='nvim'
-export TERMINAL='kitty'
+export TERMINAL='ghostty'
 # export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 
@@ -18,6 +18,7 @@ fi
 if [ -d "$HOME/.cargo/bin" ] ;
   then PATH="$HOME/.cargo/bin:$PATH"
 fi
+
 
 #  ┬  ┌─┐┌─┐┌┬┐  ┌─┐┌┐┌┌─┐┬┌┐┌┌─┐
 #  │  │ │├─┤ ││  ├┤ ││││ ┬││││├┤
@@ -54,8 +55,8 @@ expand-or-complete-with-dots() {
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 # kitty
-bindkey "\e[1;3D" backward-word # ⌥←
-bindkey "\e[1;3C" forward-word # ⌥→
+# bindkey "\e[1;3D" backward-word # ⌥←
+# bindkey "\e[1;3C" forward-word # ⌥→
 
 #  ┬ ┬┬┌─┐┌┬┐┌─┐┬─┐┬ ┬
 #  ├─┤│└─┐ │ │ │├┬┘└┬┘
@@ -246,3 +247,4 @@ export WASMER_DIR="/Users/georgiyandreev/.wasmer"
 
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export MYPYPATH=/Users/georgiyandreev/soft/rdkit/rdkit-stubs
