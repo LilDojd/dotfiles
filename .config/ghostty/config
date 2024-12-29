@@ -13,7 +13,7 @@ window-save-state = "always"
 # ------------------------------------------------------------------
 # Primary font for regular style
 font-family = ""
-font-family = "Monaspace Neon Var"
+font-family = "Monaspace Neon Var Medium"
 
 # Bold style font
 font-family-bold = ""
@@ -21,7 +21,7 @@ font-family-bold = "Monaspace Neon Var"
 
 # Italic style font
 font-family-italic = ""
-font-family-italic = "Monaspace Radon Var"
+font-family-italic = "Monaspace Radon Var Medium Italic"
 
 # Bold italic style font
 font-family-bold-italic = ""
@@ -64,7 +64,7 @@ font-feature = "liga"
 
 # Disable style synthesis if you want to rely strictly on the variable font,
 # but in Kitty you were effectively synthesizing some variants. Keep it default.
-# font-synthetic-style = "true"
+font-synthetic-style = "true"
 
 # Font size (in points)
 font-size = 14
