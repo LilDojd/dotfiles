@@ -115,7 +115,6 @@ add-zsh-hook -Uz preexec xterm_title_preexec
 #  ┴ ┴┴─┘┴┴ ┴└─┘
 alias lg="lazygit"
 
-alias ssh="kitty +kitten ssh"
 alias ls='gls -a --group-directories-first --color=tty'
 alias ll='gls -la --group-directories-first --color=tty'
 
