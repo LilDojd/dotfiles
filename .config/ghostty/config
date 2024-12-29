@@ -6,6 +6,7 @@
 # but these settings should closely match the Kitty configuration.
 
 mouse-hide-while-typing = true
+window-save-state = "always"
 
 # ------------------------------------------------------------------
 # FONT SETTINGS
@@ -28,22 +29,22 @@ font-family-bold-italic = "Monaspace Radon Var"
 
 # Enable variable font axes (weight/slant/width)
 # For normal style:
-font-variation = "wght=268.8524"
-font-variation = "wdth=106.3858"
+font-variation = "wght=200"
+font-variation = "wdth=100"
 font-variation = "slnt=0"
 
 # For bold style:
-font-variation-bold = "wght=321.3114754098361"
-font-variation-bold = "wdth=105.7065"
+font-variation-bold = "wght=300"
+font-variation-bold = "wdth=100"
 font-variation-bold = "slnt=0"
 
 # For italic style:
-font-variation-italic = "wght=308.1967"
+font-variation-italic = "wght=300"
 font-variation-italic = "wdth=100"
 font-variation-italic = "slnt=-9.625"
 
 # For bold italic style:
-font-variation-bold-italic = "wght=308.1967"
+font-variation-bold-italic = "wght=300"
 font-variation-bold-italic = "wdth=100"
 font-variation-bold-italic = "slnt=-9.625"
 
@@ -103,3 +104,19 @@ window-inherit-font-size = true
 #   ~/.config/ghostty/config
 # or load it explicitly via ghostty --config /path/to/this.conf
 # ------------------------------------------------------------
+
+# split
+keybind = cmd+s>\=new_split:right
+keybind = cmd+s>-=new_split:down
+
+keybind = cmd+s>j=goto_split:bottom
+keybind = cmd+s>k=goto_split:top
+keybind = cmd+s>h=goto_split:left
+keybind = cmd+s>l=goto_split:right
+
+keybind = cmd+s>z=toggle_split_zoom
+
+keybind = cmd+s>e=equalize_splits
+
+# other
+copy-on-select = clipboard
