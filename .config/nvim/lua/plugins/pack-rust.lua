@@ -77,6 +77,7 @@ table.insert(pack, {
   "mrcjkb/rustaceanvim",
   version = "^5",
   ft = "rust",
+
   specs = {
     {
       "AstroNvim/astrolsp",
@@ -84,26 +85,25 @@ table.insert(pack, {
       ---@type AstroLSPOpts
       opts = {
         handlers = { rust_analyzer = false }, -- disable setup of `rust_analyzer`
+        mappings = {
+          n = {
+            ["<Leader>la"] = {
+              function() vim.cmd.RustLsp "codeAction" end,
+              desc = "Rust code action",
+              silent = true,
+              cond = function() return vim.fn.exists ":RustLsp" > 0 end,
+            },
+            K = {
+              function() vim.cmd.RustLsp { "hover", "actions" } end,
+              silent = true,
+              cond = function() return vim.fn.exists ":RustLsp" > 0 end,
+            },
+          },
+        },
       },
     },
   },
   opts = function()
-    local bufnr = vim.api.nvim_get_current_buf()
-    -- local wk = require "which-key"
-    -- wk.add {
-    --   "<leader>a",
-    --   function() vim.cmd.RustLsp "codeAction" end,
-    --   desc = "Rustaceanvim Code Action",
-    --   mode = "n",
-    --   buffer = bufnr,
-    --   silent = true,
-    -- }
-    vim.keymap.set(
-      "n",
-      "K", -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
-      function() vim.cmd.RustLsp { "hover", "actions" } end,
-      { silent = true, buffer = bufnr }
-    )
     local adapter
     local success, package = pcall(function() return require("mason-registry").get_package "codelldb" end)
     local cfg = require "rustaceanvim.config"
