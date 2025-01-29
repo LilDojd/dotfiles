@@ -35,7 +35,7 @@ return {
     finder = "telescope.nvim",
 
     templates = {
-      subdir = "templates",
+      subdir = "99 - Meta/Templates",
       date_format = "%Y-%m-%d-%a",
       time_format = "%H:%M",
     },
