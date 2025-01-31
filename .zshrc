@@ -8,7 +8,7 @@
 export VISUAL="${EDITOR}"
 export EDITOR='nvim'
 export TERMINAL='ghostty'
-# export BROWSER='firefox'
+export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 
 if [ -d "$HOME/.local/bin" ] ;
@@ -250,11 +250,12 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "$HOME/.cargo/env"
+export LIBCLANG_PATH="/home/yawner/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-18.1.2_20240912/esp-clang/lib"
+export PATH="/home/yawner/.rustup/toolchains/esp/xtensa-esp-elf/esp-14.2.0_20240906/xtensa-esp-elf/bin:$PATH"
 
-# Wasmer
-export WASMER_DIR="/Users/georgiyandreev/.wasmer"
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-export MYPYPATH=/Users/georgiyandreev/soft/rdkit/rdkit-stubs
+export FLYCTL_INSTALL="/home/yawner/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
