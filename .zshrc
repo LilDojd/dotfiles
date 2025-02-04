@@ -5,8 +5,8 @@
 #  ┬  ┬┌─┐┬─┐┌─┐
 #  └┐┌┘├─┤├┬┘└─┐
 #   └┘ ┴ ┴┴└─└─┘
-export VISUAL="${EDITOR}"
 export EDITOR='nvim'
+export VISUAL="${EDITOR}"
 export TERMINAL='ghostty'
 # export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
@@ -114,6 +114,7 @@ add-zsh-hook -Uz preexec xterm_title_preexec
 #  ├─┤│  │├─┤└─┐
 #  ┴ ┴┴─┘┴┴ ┴└─┘
 alias lg="lazygit"
+alias lj="lazyjj"
 
 alias ls='gls -a --group-directories-first --color=tty'
 alias ll='gls -la --group-directories-first --color=tty'
@@ -247,3 +248,5 @@ export WASMER_DIR="/Users/georgiyandreev/.wasmer"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export MYPYPATH=/Users/georgiyandreev/soft/rdkit/rdkit-stubs
+
+source <(jj util completion zsh)
