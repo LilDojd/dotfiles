@@ -8,24 +8,25 @@
 mouse-hide-while-typing = true
 window-save-state = "always"
 
+
 # ------------------------------------------------------------------
 # FONT SETTINGS
 # ------------------------------------------------------------------
 # Primary font for regular style
 font-family = ""
-font-family = "Monaspace Neon Var Medium"
+font-family = "Monaspace Neon Medium"
 
 # Bold style font
 font-family-bold = ""
-font-family-bold = "Monaspace Neon Var"
+font-family-bold = "Monaspace Neon Bold"
 
 # Italic style font
 font-family-italic = ""
-font-family-italic = "Monaspace Radon Var Medium Italic"
+font-family-italic = "Monaspace Radon Medium Italic"
 
 # Bold italic style font
 font-family-bold-italic = ""
-font-family-bold-italic = "Monaspace Radon Var"
+font-family-bold-italic = "Monaspace Radon"
 
 # Enable variable font axes (weight/slant/width)
 # For normal style:
@@ -67,7 +68,7 @@ font-feature = "liga"
 font-synthetic-style = "true"
 
 # Font size (in points)
-font-size = 14
+font-size = 12
 
 
 # If you want cursor to blink, set cursor-style-blink to true:
@@ -82,10 +83,11 @@ theme = catppuccin-mocha
 # WINDOW APPEARANCE/PADDING
 # ------------------------------------------------------------------
 # Equivalent to kitty "window_padding_width 0"
-window-padding-x = 0
+window-padding-x = 8
 window-padding-y = 0
 
-
+background-opacity = 0.8
+background-blur = true
 # ------------------------------------------------------------------
 # (Optional) If you want no confirmation when closing surfaces:
 # confirm-close-surface = false

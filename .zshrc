@@ -121,6 +121,7 @@ alias update="paru -Syu --nocombinedupgrade"
 alias vm-on="sudo systemctl start libvirtd.service"
 alias vm-off="sudo systemctl stop libvirtd.service"
 
+alias lj="lazyjj"
 alias lg="lazygit"
 alias musica="ncmpcpp"
 
@@ -259,3 +260,5 @@ export PATH="/home/yawner/.rustup/toolchains/esp/xtensa-esp-elf/esp-14.2.0_20240
 
 export FLYCTL_INSTALL="/home/yawner/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+source <(jj util completion zsh)
