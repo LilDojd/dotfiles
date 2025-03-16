@@ -4,8 +4,36 @@ theme = "catpuccin_mocha"
 line-number = "relative"
 cursorline = true
 color-modes = true
+rulers = [80]
+completion-timeout = 15
+bufferline = "multiple"
+default-yank-register = "+"
+end-of-line-diagnostics="disable"
+mouse = true
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 1000
+
+[editor.soft-wrap]
+enable = true
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+other-lines = "disable"
+max-diagnostics = 5
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+right = ["diagnostics", "separator", "workspace-diagnostics", "selections", "position"]
+separator = "│"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
 
 [editor.lsp]
+display-messages = true
 display-inlay-hints = true
 
 [editor.cursor-shape]
@@ -21,3 +49,28 @@ hidden = false
 
 [keys.insert]
 j = { k = "normal_mode" }
+
+[keys.normal]
+"C-p" = "@:sh "
+"ret" = "goto_word"
+C-j     = "page_down"
+C-k     = ["page_up", "goto_window_top"]
+C-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+  ':set mouse false',
+  ':set mouse true'
+]
+
+[keys.normal.backspace]
+y = ":yank-diagnostic"
+backspace = "suspend"
+
+[keys.normal."space".b]
+f = "buffer_picker"
+q = ":buffer-close"
+p = ":buffer-previous"
+n = ":buffer-next"
