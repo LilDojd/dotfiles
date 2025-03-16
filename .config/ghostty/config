@@ -1,12 +1,7 @@
-
-# ============================================================
-# Ghostty Configuration (Somewhat equivalent to a Kitty config)
-# ============================================================
-# Note: Ghostty doesn't support every feature 1:1 with Kitty,
-# but these settings should closely match the Kitty configuration.
-
 mouse-hide-while-typing = true
 window-save-state = "always"
+
+command = /usr/bin/fish --login --interactive
 
 
 # ------------------------------------------------------------------
