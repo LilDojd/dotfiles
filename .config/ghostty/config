@@ -114,6 +114,7 @@ keybind = cmd+s>shift+l=next_tab
 keybind = cmd+s>shift+h=previous_tab
 keybind = cmd+s>comma=move_tab:-1
 keybind = cmd+s>period=move_tab:1
+keybind = cmd+s>q=close_tab
 
 # quick tab switch
 keybind = cmd+s>1=goto_tab:1
@@ -141,3 +142,5 @@ keybind = cmd+s>e=equalize_splits
 
 # other
 copy-on-select = clipboard
+app-notifications = no-clipboard-copy
+keybind = ctrl+v=paste_from_clipboard  

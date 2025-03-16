@@ -89,6 +89,8 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
 
 #  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬  ┌─┐  ┌┬┐┬┌┬┐┬  ┌─┐
 #  │  ├─┤├─┤││││ ┬├┤    │ ├┤ ├┬┘│││││││├─┤│  └─┐   │ │ │ │  ├┤ 
@@ -220,7 +222,6 @@ eval "$(zoxide init zsh)"
 #  ┴ ┴└─┘ ┴ └─┘  └─┘ ┴ ┴ ┴┴└─ ┴ 
 $HOME/.local/bin/colorscript -r
 
-alias pymol=/home/yawner/soft/pymol/pymol
 export PATH=$PATH:/home/yawner/.pixi/bin
 eval "$(pixi completion --shell zsh)"
 
