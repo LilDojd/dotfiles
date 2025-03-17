@@ -8,3 +8,4 @@
 *.log
 *.bak
 .local/bin/*
+.config/fish/fish_variables
