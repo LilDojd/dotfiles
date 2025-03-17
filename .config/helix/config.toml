@@ -56,14 +56,14 @@ j                     = { k = "normal_mode" }
 C-j                   = "page_down"
 C-k                   = ["page_up", "goto_window_top"]
 C-y                   = [
-  ':sh rm -f /tmp/unique-file',
-  ':insert-output yazi --chooser-file=/tmp/unique-file',
-  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
-  ':open %sh{cat /tmp/unique-file}',
-  ':redraw',
-  ':set mouse false',
-  ':set mouse true'
-]
+                        ':sh rm -f /tmp/unique-file',
+                        ':insert-output yazi --chooser-file=/tmp/unique-file',
+                        ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+                        ':open %sh{cat /tmp/unique-file}',
+                        ':redraw',
+                        ':set mouse false',
+                        ':set mouse true'
+                        ]
 
 [keys.normal.backspace]
 y                     = ":yank-diagnostic"

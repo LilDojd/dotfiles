@@ -1,7 +1,6 @@
 # Languages configuration
 [[language]]
 name = "rust"
-
 [language.auto-pairs]
 '(' = ')'
 '{' = '}'
@@ -9,3 +8,17 @@ name = "rust"
 '"' = '"'
 '`' = '`'
 '<' = '>'
+
+
+[[language]]
+name = "python"
+language-servers = ["basedpyright-ls-helix", "ruff", "pylyzer"]
+auto-format = true
+[language-server.basedpyright-ls-helix]
+command = "basedpyright-ls-helix"
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+[language-server.pylyzer]
+command = "pylyzer"
+args = ["--server"]
