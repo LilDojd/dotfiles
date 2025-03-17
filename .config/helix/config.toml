@@ -69,6 +69,10 @@ C-y = [
 y = ":yank-diagnostic"
 backspace = "suspend"
 
+[keys.normal."space".l]
+g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+
+
 [keys.normal."space".b]
 f = "buffer_picker"
 q = ":buffer-close"
