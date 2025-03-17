@@ -3,25 +3,26 @@ window-save-state = "always"
 
 command = /opt/homebrew/bin/fish --login --interactive
 
+macos-icon = holographic 
 
 # ------------------------------------------------------------------
 # FONT SETTINGS
 # ------------------------------------------------------------------
 # Primary font for regular style
 font-family = ""
-font-family = "Monaspace Neon Medium"
+font-family = "Monaspace Neon Var Medium"
 
 # Bold style font
 font-family-bold = ""
-font-family-bold = "Monaspace Neon Bold"
+font-family-bold = "Monaspace Neon Var"
 
 # Italic style font
 font-family-italic = ""
-font-family-italic = "Monaspace Radon Medium Italic"
+font-family-italic = "Monaspace Radon Var Medium Italic"
 
 # Bold italic style font
 font-family-bold-italic = ""
-font-family-bold-italic = "Monaspace Radon"
+font-family-bold-italic = "Monaspace Radon Var"
 
 # Enable variable font axes (weight/slant/width)
 # For normal style:
@@ -63,7 +64,7 @@ font-feature = "liga"
 font-synthetic-style = "true"
 
 # Font size (in points)
-font-size = 12
+font-size = 14
 
 
 # If you want cursor to blink, set cursor-style-blink to true:
@@ -78,11 +79,10 @@ theme = catppuccin-mocha
 # WINDOW APPEARANCE/PADDING
 # ------------------------------------------------------------------
 # Equivalent to kitty "window_padding_width 0"
-window-padding-x = 8
+window-padding-x = 0
 window-padding-y = 0
 
-background-opacity = 0.8
-background-blur = true
+
 # ------------------------------------------------------------------
 # (Optional) If you want no confirmation when closing surfaces:
 # confirm-close-surface = false
@@ -137,5 +137,3 @@ keybind = cmd+s>e=equalize_splits
 
 # other
 copy-on-select = clipboard
-app-notifications = no-clipboard-copy
-keybind = ctrl+v=paste_from_clipboard  
