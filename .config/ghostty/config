@@ -137,3 +137,4 @@ keybind = cmd+s>e=equalize_splits
 
 # other
 copy-on-select = clipboard
+macos-option-as-alt = left
