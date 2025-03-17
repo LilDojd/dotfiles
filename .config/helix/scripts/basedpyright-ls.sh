@@ -1,4 +1,4 @@
-#!/usr/bin/env fish
+#!/opt/homebrew/bin/fish
 
 if test -n "$VIRTUAL_ENV"
     set python_path "$VIRTUAL_ENV/bin/python"

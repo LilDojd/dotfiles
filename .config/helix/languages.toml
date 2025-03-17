@@ -12,13 +12,13 @@ name = "rust"
 
 [[language]]
 name = "python"
-language-servers = ["basedpyright-ls-helix", "ruff", "pylyzer"]
+language-servers = ["basedpyright", "ruff"]
 auto-format = true
+
+# This is buggy for some reason rn, so just use uv added basedpyright
 [language-server.basedpyright-ls-helix]
 command = "basedpyright-ls-helix"
+config = {}
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
-[language-server.pylyzer]
-command = "pylyzer"
-args = ["--server"]
