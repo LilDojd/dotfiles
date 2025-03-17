@@ -71,8 +71,12 @@ else
     if test -f "$HOME/miniforge3/etc/fish/conf.d/conda.fish"
         . "$HOME/miniforge3/etc/fish/conf.d/conda.fish"
     else
-        set -x PATH "$HOME/miniforge3/bin" $PATH
+        set -x PATH $HOME/miniforge3/bin $PATH
     end
+end
+
+if test -f "$HOME/miniforge3/etc/fish/conf.d/mamba.fish"
+    source "$HOME/miniforge3/etc/fish/conf.d/mamba.fish"
 end
 # <<< conda initialize <<<
 
