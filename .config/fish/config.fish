@@ -38,7 +38,7 @@ end
 
 abbr -a la "ll -a"
 
-abbr -a grep "getp --color=auto"
+abbr -a grep "grep --color=auto"
 abbr -a mtar "tar -zcvf"
 abbr -a utar "tar -zxvf"
 abbr -a uz "unzip"
