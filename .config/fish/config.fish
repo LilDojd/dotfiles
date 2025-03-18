@@ -24,16 +24,16 @@ set fzf_fd_opts --hidden --max-depth 5
 # abbr -aeviations and aliases
 
 if type -q lazyjj
-  abbr -a lj "lazyjj"
+    abbr -a lj lazyjj
 end
 
 if type -q lazygit
-  abbr -a lg "lazygit"
+    abbr -a lg lazygit
 end
 
 if type -q eza
-  abbr -a ls "eza -G"
-  abbr -a ll "eza -l -g --icons"
+    abbr -a ls "eza -G"
+    abbr -a ll "eza -l -g --icons"
 end
 
 abbr -a la "ll -a"
@@ -41,9 +41,9 @@ abbr -a la "ll -a"
 abbr -a grep "grep --color=auto"
 abbr -a mtar "tar -zcvf"
 abbr -a utar "tar -zxvf"
-abbr -a uz "unzip"
+abbr -a uz unzip
 
-abbr -a vim "nvim"
+abbr -a vim nvim
 
 # Verbose mv cp rm
 abbr -a mv "mv -v"
@@ -51,8 +51,8 @@ abbr -a cp "cp -vr"
 abbr -a rm "rm -vr"
 
 if test "$ESP_RS" = true
-  fish_add_path $HOME/.rustup/toolchains/esp/xtensa-esp-elf/esp-14.2.0_20240906/xtensa-esp-elf/bin
-  set LIBCLANG_PATH $LIBCLANG_PATH/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-18.1.2_20240912/esp-clang/lib
+    fish_add_path $HOME/.rustup/toolchains/esp/xtensa-esp-elf/esp-14.2.0_20240906/xtensa-esp-elf/bin
+    set LIBCLANG_PATH $LIBCLANG_PATH/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-18.1.2_20240912/esp-clang/lib
 end
 
 # Source platform-specific configurations
@@ -66,7 +66,7 @@ end
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if test -f $HOME/miniforge3/bin/conda
-    eval $HOME/miniforge3/bin/conda "shell.fish" "hook" $argv | source
+    eval $HOME/miniforge3/bin/conda "shell.fish" hook $argv | source
 else
     if test -f "$HOME/miniforge3/etc/fish/conf.d/conda.fish"
         . "$HOME/miniforge3/etc/fish/conf.d/conda.fish"
