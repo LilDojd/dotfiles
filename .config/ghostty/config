@@ -1,7 +1,7 @@
 mouse-hide-while-typing = true
 window-save-state = "always"
 
-command = /opt/homebrew/bin/fish --login --interactive
+command = /sbin/fish --login --interactive
 
 
 # ------------------------------------------------------------------
