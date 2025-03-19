@@ -21,6 +21,14 @@ fish_add_path $HOME/.cargo/bin
 # Variables
 set fzf_fd_opts --hidden --max-depth 5
 
+# Source platform-specific configurations
+switch (uname)
+    case Linux
+        source (dirname (status --current-filename))/config-linux.fish
+    case Darwin
+        source (dirname (status --current-filename))/config-osx.fish
+end
+
 # abbr -aeviations and aliases
 
 if type -q lazyjj
@@ -53,14 +61,6 @@ abbr -a rm "rm -vr"
 if test "$ESP_RS" = true
     fish_add_path $HOME/.rustup/toolchains/esp/xtensa-esp-elf/esp-14.2.0_20240906/xtensa-esp-elf/bin
     set LIBCLANG_PATH $LIBCLANG_PATH/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-18.1.2_20240912/esp-clang/lib
-end
-
-# Source platform-specific configurations
-switch (uname)
-    case Linux
-        source (dirname (status --current-filename))/config-linux.fish
-    case Darwin
-        source (dirname (status --current-filename))/config-osx.fish
 end
 
 # >>> conda initialize >>>
