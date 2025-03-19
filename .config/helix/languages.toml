@@ -1,6 +1,7 @@
 # Languages configuration
 [[language]]
 name = "rust"
+language-servers = [ "rust-analyzer", "hx-lsp" ]
 [language.auto-pairs]
 '(' = ')'
 '{' = '}'
@@ -22,3 +23,10 @@ config = {}
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
+
+[language-server.hx-lsp]
+command = "hx-lsp"
+
+[[language]]
+name = "markdown"
+language-servers = [ "marksman", "markdown-oxide", "hx-lsp" ]
