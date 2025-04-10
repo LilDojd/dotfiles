@@ -21,6 +21,14 @@ fish_add_path $HOME/.cargo/bin
 # Variables
 set fzf_fd_opts --hidden --max-depth 5
 
+# Source platform-specific configurations
+switch (uname)
+    case Linux
+        source (dirname (status --current-filename))/config-linux.fish
+    case Darwin
+        source (dirname (status --current-filename))/config-osx.fish
+end
+
 # abbr -aeviations and aliases
 
 if type -q lazyjj
@@ -29,6 +37,10 @@ end
 
 if type -q lazygit
     abbr -a lg lazygit
+end
+
+if type -q yazi
+    abbr -a yy yazi
 end
 
 if type -q eza
@@ -55,14 +67,6 @@ if test "$ESP_RS" = true
     set LIBCLANG_PATH $LIBCLANG_PATH/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-18.1.2_20240912/esp-clang/lib
 end
 
-# Source platform-specific configurations
-switch (uname)
-    case Linux
-        source (dirname (status --current-filename))/config-linux.fish
-    case Darwin
-        source (dirname (status --current-filename))/config-osx.fish
-end
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if test -f $HOME/miniforge3/bin/conda
@@ -71,7 +75,7 @@ else
     if test -f "$HOME/miniforge3/etc/fish/conf.d/conda.fish"
         . "$HOME/miniforge3/etc/fish/conf.d/conda.fish"
     else
-        set -x PATH $HOME/miniforge3/bin $PATH
+        set -x PATH "$HOME/miniforge3/bin" $PATH
     end
 end
 
@@ -94,3 +98,13 @@ function abbr_update_keys_and_values
 end
 
 abbr_update_keys_and_values
+
+function sync_history --on-event fish_preexec
+    history save
+    history merge
+end
+
+# The next line updates PATH for the Google Cloud SDK.
+if test -f "$HOME/google-cloud-sdk/path.fish.inc"
+    source "$HOME/google-cloud-sdk/path.fish.inc"
+end

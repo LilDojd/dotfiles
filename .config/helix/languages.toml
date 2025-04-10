@@ -1,6 +1,7 @@
 # Languages configuration
 [[language]]
 name = "rust"
+language-servers = [ "rust-analyzer", "hx-lsp" ]
 [language.auto-pairs]
 '(' = ')'
 '{' = '}'
@@ -9,16 +10,25 @@ name = "rust"
 '`' = '`'
 '<' = '>'
 
-
 [[language]]
 name = "python"
 language-servers = ["basedpyright", "ruff", "pylyzer"]
 auto-format = true
+
 [language-server.basedpyright-ls-helix]
 command = "basedpyright-ls-helix"
+
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
+
 [language-server.pylyzer]
 command = "pylyzer"
 args = ["--server"]
+
+[language-server.hx-lsp]
+command = "hx-lsp"
+
+[[language]]
+name = "markdown"
+language-servers = [ "marksman", "markdown-oxide", "hx-lsp" ]

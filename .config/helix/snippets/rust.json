@@ -1,0 +1,588 @@
+{
+  "Function definition": {
+    "prefix": "fn",
+    "body": [
+      "fn ${1:function_name}($2)$3 {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Function definition"
+  },
+  "Public function definition": {
+    "prefix": "pfn",
+    "body": [
+      "pub fn ${1:function_name}($2)$3 {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Public function definition"
+  },
+  "Async function definition": {
+    "prefix": "afn",
+    "body": [
+      "async fn ${1:function_name}($2)$3 {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Async function definition"
+  },
+  "Public async function definition": {
+    "prefix": "pafn",
+    "body": [
+      "pub async fn ${1:function_name}($2)$3 {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Public async function definition"
+  },
+  "Bench function": {
+    "prefix": "bench",
+    "body": [
+      "#[bench]",
+      "fn ${1:bench_function_name}(b: &mut test::Bencher) {",
+      "\tb.iter(|| {",
+      "\t\t${0}",
+      "\t})",
+      "}"
+    ],
+    "description": "Bench function"
+  },
+  "Constructor function": {
+    "prefix": "new",
+    "body": [
+      "pub fn new($2) -> ${1:Self} {",
+      "\t$1 { ${3} }",
+      "}"
+    ],
+    "description": "Constructor function"
+  },
+  "Main function": {
+    "prefix": "main",
+    "body": [
+      "pub fn main() {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Main function"
+  },
+  "let declaration (inferred)": {
+    "prefix": "let",
+    "body": [
+      "let ${1} = ${2};"
+    ],
+    "description": "let variable declaration with type inference"
+  },
+  "let declaration (typed)": {
+    "prefix": "lett",
+    "body": [
+      "let ${1}: ${2} = ${3};"
+    ],
+    "description": "let variable declaration with explicit type annotation"
+  },
+  "let mut declaration (inferred)": {
+    "prefix": "letm",
+    "body": [
+      "let mut ${1} = ${2};"
+    ],
+    "description": "let mut variable declaration with type inference"
+  },
+  "let mut declaration (typed)": {
+    "prefix": "lettm",
+    "body": [
+      "let mut ${1}: ${2} = ${3};"
+    ],
+    "description": "let mut variable declaration with explicit type annotation"
+  },
+  "print!": {
+    "prefix": "pri",
+    "body": [
+      "print!(\"${1}\");"
+    ],
+    "description": "print!"
+  },
+  "print! with format param": {
+    "prefix": "pri,",
+    "body": [
+      "print!(\"${1}{${2}}\", ${3});"
+    ],
+    "description": "print! with format param"
+  },
+  "println!": {
+    "prefix": "pln",
+    "body": [
+      "println!(\"${1}\");"
+    ],
+    "description": "println!"
+  },
+  "println! with format param": {
+    "prefix": "pln,",
+    "body": [
+      "println!(\"${1}{${2}}\", ${3});"
+    ],
+    "description": "println! with format param"
+  },
+  "format!": {
+    "prefix": "fmt",
+    "body": [
+      "format!(\"${1}{${2}}\", ${3});"
+    ],
+    "description": "format!"
+  },
+  "dbg! macro": {
+    "prefix": "d",
+    "body": [
+      "dbg!(${0:$TM_SELECTED_TEXT})"
+    ],
+    "description": "dbg! debugging macro"
+  },
+  "dbg! macro statement": {
+    "prefix": "d;",
+    "body": [
+      "dbg!(&${1});",
+      "${0}"
+    ],
+    "description": "dbg! debugging macro statement"
+  },
+  "extern crate": {
+    "prefix": "ec",
+    "body": [
+      "extern crate ${1:sync};"
+    ],
+    "description": "extern crate"
+  },
+  "extern crate log": {
+    "prefix": "ecl",
+    "body": [
+      "#[macro_use]",
+      "extern crate log;"
+    ],
+    "description": "extern crate log"
+  },
+  "Module definition (PascalCase from filename)": {
+    "prefix": "mod",
+    "body": [
+      "mod ${1:${TM_FILENAME_BASE/(?:^|_)(.)/\\u$1/g}} {",
+      "\t${0}",
+      "} /* $1 */"
+    ],
+    "description": "Module definition (PascalCase from filename)"
+  },
+  "assert!": {
+    "prefix": "as",
+    "body": [
+      "assert!(${1:predicate});"
+    ],
+    "description": "assert!"
+  },
+  "assert_eq!": {
+    "prefix": "ase",
+    "body": [
+      "assert_eq!(${1:expected}, ${2:actual});"
+    ],
+    "description": "assert_eq!"
+  },
+  "Unit test function": {
+    "prefix": "test",
+    "body": [
+      "#[test]",
+      "fn ${1:function_name}_test() {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Unit test function"
+  },
+  "Test module": {
+    "prefix": "testmod",
+    "body": [
+      "#[cfg(test)]",
+      "mod tests {",
+      "\tuse super::${1:*};",
+      "",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Test module"
+  },
+  "#[ignore] attribute": {
+    "prefix": "ig",
+    "body": [
+      "#[ignore]"
+    ],
+    "description": "#[ignore]"
+  },
+  "#[allow(...)] attribute": {
+    "prefix": "allow",
+    "body": [
+      "#[allow(${1:unused_variables})]"
+    ],
+    "description": "allow lint attribute"
+  },
+  "#[cfg(...)] attribute": {
+    "prefix": "cfg",
+    "body": [
+      "#[cfg(${1:target_os = \"linux\"})]"
+    ],
+    "description": "cfg attribute"
+  },
+  "#![feature(...)] attribute": {
+    "prefix": "feat",
+    "body": [
+      "#![feature(${1:plugin})]"
+    ],
+    "description": "feature attribute"
+  },
+  "#[derive(...)] attribute": {
+    "prefix": "der",
+    "body": [
+      "#[derive(${1:Debug})]"
+    ],
+    "description": "#[derive(..)]"
+  },
+  "Generic attribute #[...]": {
+    "prefix": "attr",
+    "body": [
+      "#[${1:inline}]"
+    ],
+    "description": "#[...]"
+  },
+  "Crate meta attributes": {
+    "prefix": "crate",
+    "body": [
+      "// Crate name",
+      "#![crate_name = \"${1:crate_name}\"]",
+      "// Additional metadata attributes",
+      "#![desc = \"${2:Description.}\"]",
+      "#![license = \"${3:BSD}\"]",
+      "#![comment = \"${4:Comment.}\"]",
+      "// Specify the output type",
+      "#![crate_type = \"${5:lib}\"]"
+    ],
+    "description": "Define create meta attributes"
+  },
+  "Option<T> type": {
+    "prefix": "opt",
+    "body": [
+      "Option<${1:i32}>"
+    ],
+    "description": "Option<T>"
+  },
+  "Result<T, E> type": {
+    "prefix": "res",
+    "body": [
+      "Result<${1:&str}, ${2:()}>"
+    ],
+    "description": "Result<T, E>"
+  },
+  "if block": {
+    "prefix": "if",
+    "body": [
+      "if ${1} {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "}"
+    ],
+    "description": "if block"
+  },
+  "if / else block": {
+    "prefix": "ife",
+    "body": [
+      "if ${1} {",
+      "\t${2:$TM_SELECTED_TEXT}",
+      "} else {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "if / else"
+  },
+  "if let block": {
+    "prefix": "ifl",
+    "body": [
+      "if let ${1:Some($2)} = $3 {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "}"
+    ],
+    "description": "if let (...)"
+  },
+  "else block": {
+    "prefix": "el",
+    "body": [
+      "else {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "}"
+    ],
+    "description": "else"
+  },
+  "else if block": {
+    "prefix": "eli",
+    "body": [
+      "else if ${1} {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "}"
+    ],
+    "description": "else if"
+  },
+  "match expression": {
+    "prefix": "mat",
+    "body": [
+      "match ${1} {",
+      "\t${2} => ${3}",
+      "}"
+    ],
+    "description": "match pattern"
+  },
+  "match case clause": {
+    "prefix": "case",
+    "body": [
+      "${1:_} => ${2:expression}"
+    ],
+    "description": "Case clause of pattern match"
+  },
+  "=>": {
+    "prefix": "=",
+    "body": [
+      "=> $0"
+    ],
+    "description": "=> arrow for match arms, closures"
+  },
+  "loop block": {
+    "prefix": "loop",
+    "body": [
+      "loop {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "}"
+    ],
+    "description": "loop {}"
+  },
+  "while loop": {
+    "prefix": "wh",
+    "body": [
+      "while ${1} {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "}"
+    ],
+    "description": "while loop"
+  },
+  "while let loop": {
+    "prefix": "whl",
+    "body": [
+      "while let ${1:Some($2)} = $3 {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "}"
+    ],
+    "description": "while let (...)"
+  },
+  "for loop": {
+    "prefix": "for",
+    "body": [
+      "for ${1:i} in ${2} {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "for ... in ... loop"
+  },
+  "TODO comment": {
+    "prefix": "todo",
+    "body": [
+      "// TODO: $0"
+    ],
+    "description": "TODO comment"
+  },
+  "FIXME comment": {
+    "prefix": "fixme",
+    "body": [
+      "// FIXME: $0"
+    ],
+    "description": "FIXME comment"
+  },
+  "Struct definition (PascalCase from filename)": {
+    "prefix": "st",
+    "body": [
+      "struct ${1:${TM_FILENAME_BASE/(?:^|_)(.)/\\u$1/g}} {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Struct definition (PascalCase from filename)"
+  },
+  "impl block": {
+    "prefix": "impl",
+    "body": [
+      "impl${2: ${1:Trait}} for ${3:Type} {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Struct/Trait implementation"
+  },
+  "Struct with new constructor": {
+    "prefix": "stn",
+    "body": [
+      "pub struct ${1:${TM_FILENAME_BASE/(?:^|_)(.)/\\u$1/g}}${2} {",
+      "\t$3",
+      "}",
+      "",
+      "impl$2 $1$2 {",
+      "\tpub fn new(${4}) -> Self {",
+      "\t\t$1 { ${5} }",
+      "\t}",
+      "}"
+    ],
+    "description": "Struct with new constructor"
+  },
+  "Type alias": {
+    "prefix": "ty",
+    "body": [
+      "type ${1:NewName} = $2;"
+    ],
+    "description": "Type alias"
+  },
+  "enum definition": {
+    "prefix": "enum",
+    "body": [
+      "enum ${1:Name} {",
+      "\t${2},",
+      "}"
+    ],
+    "description": "enum definition"
+  },
+  "pub enum definition": {
+    "prefix": "penum",
+    "body": [
+      "pub enum ${1:Name} {",
+      "\t${2},",
+      "}"
+    ],
+    "description": "pub enum definition"
+  },
+  "Trait definition": {
+    "prefix": "trait",
+    "body": [
+      "trait ${1:Name} {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Trait definition"
+  },
+  "Drop trait implementation": {
+    "prefix": "drop",
+    "body": [
+      "impl Drop for $1 {",
+      "\tfn drop(&mut self) {",
+      "\t\t${0}",
+      "\t}",
+      "}"
+    ],
+    "description": "Drop trait implementation (destructor)"
+  },
+  "Static string declaration": {
+    "prefix": "ss",
+    "body": [
+      "static ${1}: &'static str = \"${0}\";"
+    ],
+    "description": "static string declaration"
+  },
+  "Static item declaration": {
+    "prefix": "stat",
+    "body": [
+      "static ${1}: ${2:usize} = ${0};"
+    ],
+    "description": "static item declaration"
+  },
+  "Spawn a thread": {
+    "prefix": "spawn",
+    "body": [
+      "thread::spawn(${1:move }|| {",
+      "\t${0}",
+      "});"
+    ],
+    "description": "spawn a thread"
+  },
+  "Channel declaration": {
+    "prefix": "chan",
+    "body": [
+      "let (${1:tx}, ${2:rx}): (Sender<${3:i32}>, Receiver<${4:$3}>) = channel();"
+    ],
+    "description": "Declare (Sender, Receiver) pair of asynchronous channel()"
+  },
+  "AsRef trait implementation": {
+    "prefix": "asref",
+    "body": [
+      "impl AsRef<${1:Ref}> for ${2:Type} {",
+      "\tfn as_ref(&self) -> &${3:$1} {",
+      "\t\t&self.${0:field}",
+      "\t}",
+      "}"
+    ],
+    "description": "AsRef trait implementation"
+  },
+  "AsMut trait implementation": {
+    "prefix": "asmut",
+    "body": [
+      "impl AsMut<${1:Ref}> for ${2:Type} {",
+      "\tfn as_mut(&mut self) -> &mut ${3:$1} {",
+      "\t\t&mut self.${0:field}",
+      "\t}",
+      "}"
+    ],
+    "description": "AsMut trait implementation"
+  },
+  "Struct field definition": {
+    "prefix": "fd",
+    "body": [
+      "${1:name}: ${2:Type},"
+    ],
+    "description": "Struct field definition"
+  },
+  "Inline closure": {
+    "prefix": "||",
+    "body": [
+      "${1:move }|$2| { $3 }"
+    ],
+    "description": "Closure, anonymous function (inline)"
+  },
+  "Block closure": {
+    "prefix": "|} ", // Added space to differentiate from inline if typed fast
+    "body": [
+      "${1:move }|$2| {",
+      "\t$3",
+      "}"
+    ],
+    "description": "Closure, anonymous function (block)"
+  },
+  "macro_rules! definition": {
+    "prefix": "macro",
+    "body": [
+      "macro_rules! ${1:name} {",
+      "\t(${2:matcher}) => {", // Changed () to {} for common Rust style
+      "\t\t$3",
+      "\t};", // Changed ) to }; for common Rust style
+      "}"
+    ],
+    "description": "macro_rules!"
+  },
+  "Box::new()": {
+    "prefix": "boxp",
+    "body": [
+      "Box::new(${0:$TM_SELECTED_TEXT})"
+    ],
+    "description": "Box::new()"
+  },
+  "Rc::new()": {
+    "prefix": "rc",
+    "body": [
+      "Rc::new(${0:$TM_SELECTED_TEXT})"
+    ],
+    "description": "Rc::new()"
+  },
+  "unimplemented!() macro": {
+    "prefix": "unim",
+    "body": [
+      "unimplemented!()"
+    ],
+    "description": "unimplemented!()"
+  },
+  "use statement": {
+    "prefix": "use",
+    "body": [
+      "use ${1:std::${2}};"
+    ],
+    "description": "use ...;"
+  }
+}
