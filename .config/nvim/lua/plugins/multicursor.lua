@@ -1,4 +1,4 @@
 return {
-  "AstroNvim/astrocommunity",
-  { import = "astrocommunity.editing-support.multicursors-nvim" },
+  -- "AstroNvim/astrocommunity",
+  -- { import = "astrocommunity.editing-support.multicursors-nvim" },
 }

@@ -185,7 +185,7 @@
     "prefix": "test",
     "body": [
       "#[test]",
-      "fn ${1:function_name}_test() {",
+      "fn test_${1:function_name}() {",
       "\t${0}",
       "}"
     ],
@@ -234,7 +234,7 @@
   "#[derive(...)] attribute": {
     "prefix": "der",
     "body": [
-      "#[derive(${1:Debug})]"
+      "#[derive(${1:Debug, Clone, PartialEq})]"
     ],
     "description": "#[derive(..)]"
   },
@@ -550,9 +550,9 @@
     "prefix": "macro",
     "body": [
       "macro_rules! ${1:name} {",
-      "\t(${2:matcher}) => {", // Changed () to {} for common Rust style
+      "\t(${2:matcher}) => {",
       "\t\t$3",
-      "\t};", // Changed ) to }; for common Rust style
+      "\t};",
       "}"
     ],
     "description": "macro_rules!"
