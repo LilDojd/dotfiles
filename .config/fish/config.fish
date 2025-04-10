@@ -99,12 +99,19 @@ end
 
 abbr_update_keys_and_values
 
+# Handy change dir shortcuts
+abbr .. 'cd ..'
+abbr ... 'cd ../..'
+abbr .3 'cd ../../..'
+abbr .4 'cd ../../../..'
+abbr .5 'cd ../../../../..'
+
 function sync_history --on-event fish_preexec
     history save
     history merge
 end
 
 # The next line updates PATH for the Google Cloud SDK.
-if test -f "$HOME/google-cloud-sdk/path.fish.inc"
-    source "$HOME/google-cloud-sdk/path.fish.inc"
+if test -f "$HOME/soft/google-cloud-sdk/path.fish.inc"
+    source "$HOME/soft/google-cloud-sdk/path.fish.inc"
 end
